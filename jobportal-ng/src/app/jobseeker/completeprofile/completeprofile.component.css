@@ -1,0 +1,16 @@
+.value-container {
+  background-color: cornflowerblue;
+  position: absolute;
+  width: 86%;
+  padding-left: 1rem;
+  border-radius: 10px;
+  left: 7%;
+}
+
+.field-container {
+  border-style: solid;
+  border-color: cornflowerblue;
+  border-width: 3px;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}

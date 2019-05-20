@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col">
+      <div class="card text-white bg-info mb-3" *ngFor="let user of users" style="max-width: 18rem;">
+          <div class="card-header">{{ user.firstname }} {{ user.lastname }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ user.id }}</h5>
+            <p class="card-text" *ngFor="let skill of user.skills">{{ skill }}</p>
+          </div>
+        </div>
+  </div>
+</div>

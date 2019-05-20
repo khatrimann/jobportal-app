@@ -1,0 +1,9 @@
+<div class="header" style="width: 100%;">
+  <nav class="nav navbar-expand-lg bg-dark navbar-dark navbar-fixed-top">
+      <a class="nav-link active" [routerLink]="['/home']">Home</a>
+      <a class="nav-link" *ngIf="!isAuthenticated" [routerLink]="['/login']">Login</a>
+      <a class="nav-link" *ngIf="isAuthenticated" style="color: white" [routerLink]="[id, role, 'profile']">{{ username }}</a>
+      <a class="nav-link" *ngIf="isAuthenticated" (click)="logout()">Logout</a>
+  </nav>
+</div>
+

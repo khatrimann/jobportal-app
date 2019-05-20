@@ -1,0 +1,73 @@
+<div class="form-container" style="margin: 3rem;">
+
+  <div class="row mx-auto" style="align-items: center">
+      <div class="col mx-auto" style="align-items: center">
+        <h1>Welcome, {{ role }}</h1>
+        <label class="switch">
+          <input type="checkbox" [checked]="seeker" (click)="status()">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+
+  </div>
+
+  <div class="row d-flex my-auto" style="padding: 2rem;">
+
+    <div class="col login-form border-right mx-auto my-auto" style="padding-right: 1.5rem;">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="username" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+        </div>
+        </form>
+    </div>
+
+    <div class="col signup-form border-left px-auto my-auto" style="padding-right: 1.5rem;">
+      <form [formGroup]="registerForm">
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="username" formControlName="username">
+        </div>
+
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" class="form-control" id="firstname" placeholder="First Name" formControlName="firstname">
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" id="lastname" placeholder="Last Name" formControlName="lastname">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row mx-auto" style="align-items: center">
+
+    <div class="col mx-auto" style="align-items: center">
+      <a type="button" class="btn btn-primary" (click)="login()" >Login</a>
+    </div>
+
+    <div class="col mx-auto" style="align-items: center">
+      <a type="button" class="btn btn-primary" (click)="register()">Register</a>
+    </div>
+
+  </div>
+
+</div>

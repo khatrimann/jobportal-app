@@ -1,0 +1,119 @@
+<form [formGroup]="seekerForm" (onsubmit)="proceed()">
+  <div class="field-container company">
+    <span class="value-container" (click)="addCompany()"><i class="fa fa-plus" aria-hidden="true"></i> add company</span>
+      <div style="overflow-y: auto; height: 15rem;">
+        <div formArrayName="company" *ngFor="let fields of seekerForm.get('company').controls; let i = index;" style="padding: 2rem;">
+          <div [formGroupName]="i">
+            <h3 class="py-3">Company {{ i+1 }}</h3>
+            <button type="button" class="close" aria-label="Close" (click)="removeCompany(i)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          <div class="form-group">
+            <label for="name">Company Name:</label>
+            <input placeholder="Company Name" formControlName="name" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('company').errors">
+              <p class="alert alert-warning" *ngIf="seekerForm.get('company').controls[i].controls.name.errors.required"><small>Error: Name is required</small></p>
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="from">From: </label>
+            <input type="date" placeholder="from" formControlName="from" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('company').errors">
+                <p class="alert alert-warning" *ngIf="seekerForm.get('company').controls[i].controls.experience.errors.required"><small>Error: Name is required</small></p> -->
+          </div>
+
+          <div class="form-group">
+            <label for="to">To: </label>
+            <input type="date" placeholder="to" formControlName="to" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('company').errors">
+                <p class="alert alert-warning" *ngIf="seekerForm.get('company').controls[i].controls.experience.errors.required"><small>Error: Name is required</small></p> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-container education">
+    <span class="value-container" (click)="addEducation()"><i class="fa fa-plus" aria-hidden="true"></i> add education</span>
+    <div style="overflow-y: auto; height: 15rem;">
+      <div formArrayName="education" *ngFor="let fields of seekerForm.get('education').controls; let i = index;">
+        <div [formGroupName]="i">
+          <h3 class="py-3">education {{ i+1 }}</h3>
+          <button type="button" class="close" aria-label="Close" (click)="removeEducation(i)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <div class="form-group">
+            <label for="name">Institute:</label>
+            <input placeholder="Institute Name" formControlName="name" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('education').errors">
+              <p class="alert alert-warning" *ngIf="seekerForm.get('education').controls[i].controls.name.errors.required"><small>Error: Name is required</small></p>
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="from">from</label>
+            <input type="date" placeholder="from" formControlName="from" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('education').errors">
+                <p class="alert alert-warning" *ngIf="seekerForm.get('education').controls[i].controls.from.errors.required"><small>Error: Name is required</small></p>
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="to">to</label>
+            <input type="date" placeholder="to" formControlName="to" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('education').errors">
+                <p class="alert alert-warning" *ngIf="seekerForm.get('education').controls[i].controls.to.errors.required"><small>Error: Name is required</small></p>
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="marks">marks</label>
+            <input type="number" placeholder="marks" formControlName="marks" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('education').errors">
+                <p class="alert alert-warning" *ngIf="seekerForm.get('education').controls[i].controls.marks.errors.required"><small>Error: Name is required</small></p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-container skill">
+    <span class="value-container" (click)="addSkills()"><i class="fa fa-plus" aria-hidden="true"></i> add skill</span>
+    <div style="overflow-y: auto; height: 15rem;">
+      <div formArrayName="skills" *ngFor="let fields of seekerForm.get('skills').controls; let i = index;">
+          <div [formGroupName]="i">
+            <h3 class="py-3">skills {{ i+1 }}</h3>
+            <button type="button" class="close" aria-label="Close" (click)="removeSkill(i)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          <div class="form-group">
+            <label for="skill">Skill:</label>
+            <input placeholder="Skill Name" formControlName="skill" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('skills').errors">
+              <p class="alert alert-warning" *ngIf="seekerForm.get('skills').controls[i].controls.skill.errors.required"><small>Error: Skill is required</small></p>
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="level">level</label>
+            <input type="number" placeholder="level" formControlName="level" maxlength="30" minlength="4" required>
+            <!-- <div *ngIf="this.seekerForm.get('skills').errors">
+                <p class="alert alert-warning" *ngIf="seekerForm.get('skills').controls[i].controls.level.errors.required"><small>Error: Name is required</small></p>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="proceed()">Proceed</button>
+
+</form>

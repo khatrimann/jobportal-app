@@ -1,0 +1,114 @@
+<div class="row mx-auto body-container">
+
+  <div class="col-3 side-pane border rounded mx-auto">
+    <div class="img">
+      <img src="../../../assets/images/profile.jpg" class="rounded-circle img-rounded">
+    </div>
+
+    <div class="name">
+      <p id="username" *ngIf="firstname || lastname">{{ firstname }} {{ lastname }}</p>
+    </div>
+
+    <div class="social-icons px-auto">
+        <div style="margin-right: 0.5rem;"><i class="fab fa-facebook-square" aria-hidden="true"></i></div>
+        <div style="margin-right: 0.5rem;"><i class="fab fa-twitter"></i></div>
+        <div><i class="fab fa-linkedin"></i></div>
+    </div>
+
+    <div class="qr-code-container">
+        <qrcode [qrdata]="fullname" [size]="256" [level]="'H'"></qrcode>
+    </div>
+
+  </div>
+
+  <div class="col-9 card-container">
+    <div class="row">
+      <div class="col">
+        <a class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i> Post Job</a>
+      </div>
+    </div>
+    <div class="row" *ngIf="job">
+      <div class="col-3" *ngFor="let job of job.jobs">
+        <div class="card h-20 text-white bg-primary mb-3"  style="max-width: 18rem; height: 14rem;">
+          <div class="card-header" [routerLink]="['/', id, 'provider','applied_users', job._id]">{{ job.title | titlecase }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ job.location[0] }}</h5>
+            <p class="card-text">Min: {{ job.salary.min }}<br>
+            Max: {{ job.salary.max }}<br>
+            Experience: {{ job.experience }}</p><br>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <!-- BODY -->
+
+            <form [formGroup]="postJobForm">
+              <div class="form-group">
+                <label for="title">Titile</label>
+                <input type="text" class="form-control" id="title" placeholder="Senior AI Engineer" formControlName="title">
+              </div>
+
+              <div formGroupName="salary">
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="min">Min Salary</label>
+                      <input type="number" id="min" class="form-control" placeholder="&#x20b9;5,00,000" formControlName="min">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="max">Max Salary</label>
+                      <input type="number" id="max" class="form-control" placeholder="&#x20b9;15,00,000" formControlName="max">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="experience">Experience</label>
+                  <select id="experience" formControlName="experience" class="form-control">
+                    <option *ngFor="let item of range(16); let i = index;">{{ i }}</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="location">Location</label>
+                  <input type="text" class="form-control" id="location" placeholder="E.g. Bangalore" formControlName="location">
+              </div>
+
+              <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" class="form-control" id="skills" placeholder="Java, Python, C++, Ruby..." formControlName="skills">
+              </div>
+
+            </form>
+
+          <!-- END BODY -->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="postJob()">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>

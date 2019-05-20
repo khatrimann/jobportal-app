@@ -1,0 +1,61 @@
+<div class="row mx-auto body-container">
+
+  <div class="col-3 side-pane border rounded mx-auto">
+    <div class="img">
+      <img src="../../../assets/images/profile.jpg" class="rounded-circle img-rounded">
+    </div>
+
+    <div class="name">
+      <p id="username" *ngIf="firstname || lastname">{{ firstname }} {{ lastname }}</p>
+    </div>
+
+    <div class="social-icons px-auto">
+        <div style="margin-right: 0.5rem;"><i class="fab fa-facebook-square" aria-hidden="true"></i></div>
+        <div style="margin-right: 0.5rem;"><i class="fab fa-twitter"></i></div>
+        <div><i class="fab fa-linkedin"></i></div>
+    </div>
+
+    <div class="qr-code-container">
+        <qrcode [qrdata]="fullname" [size]="256" [level]="'H'"></qrcode>
+    </div>
+
+  </div>
+
+  <div class="col-9 card-container">
+    <div class="row">
+      <div class="col-3" *ngFor="let company of user.company">
+        <div class="card h-20 text-white bg-primary mb-3" style="max-width: 18rem; height: 14rem;">
+          <div class="card-header">{{ company.name | titlecase }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ company.title }}</h5>
+            <p class="card-text">From: {{ company.from | date }}<br>
+            To: {{ company.to | date}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mx-auto">
+      <div class="col-3" *ngFor="let education of user.education">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+          <div class="card-header">{{ education.name | titlecase }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ education.level | titlecase }}</h5>
+            <p class="card-text">From: {{ education.from | date }}<br>
+            To: {{ education.to | date }}<br>
+          Marks: {{ education.marks }}%</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-1" *ngFor="let skill of user.skills">
+        <h6><span class="badge badge-secondary">{{ skill.name }} <span aria-hidden="true"> &times;</span></span></h6>
+      </div>
+    </div>
+  </div>
+
+</div>

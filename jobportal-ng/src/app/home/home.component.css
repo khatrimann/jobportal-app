@@ -1,0 +1,67 @@
+.search {
+  width: 50%;
+  position: relative;
+  height: 20rem;
+  color: red;
+  display: flex;
+  align-items: center;
+  right: -25%;
+}
+
+.search-container {
+  background-color: red;
+  background-image: url('../../assets/images/corporate-staffing-companies.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: center;
+}
+
+.search-heading {
+  font-size: 8rem;
+  align-items: center;
+  margin-left: 10rem;
+  margin-bottom: -5rem;
+}
+
+.form-text {
+  height: 2.5rem;
+  text-indent: 1rem;
+}
+
+.job-container {
+  padding-top: 2.5rem;
+  padding-left: 3rem;
+}
+
+.card{
+  height: 15rem;
+}
+
+.suggestions {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.suggestions li{
+	background: white;
+	list-style: none;
+	border-bottom: 1px solid #D8D8D8;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+	margin: 0;
+	padding: 20px;
+	transition: background 0.2s;
+	display: flex;
+	justify-content: space-between;
+	text-transform: capitalize;
+}
+
+.suggestions li:nth-child(even){
+	transform: perspective(100px) rotateX(-3deg) translateY(3px);
+	background: linear-gradient(to top, #ffffff 0%,#EFEFEF 100%);
+}
+
+.hl {
+	background: #ffc600;
+}
